@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPO26</title>
+    <!-- Simple Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="logo">EXPO26</div>
+        <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#register">Inscrições</a></li>
+            <li><a href="#classificacoes">BRACKET</a></li>
+            <li><a href="#prizes">Prémios</a></li>
+            <li><a href="#rules">Regulamento</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-content">
+            <h1>EXPO26</h1>
+            <h2>Expocolgaia XXIX</h2>
+            <p class="event-details">
+                Organizado pelos alunos do 12º ano do Curso de Informática e Tecnologias Multimédia.<br>
+                Datas do torneio: <strong>26 e 27 de Março</strong>
+            </p>
+            <div id="countdown" class="countdown">
+                <div><span id="days">00</span>
+                    <p>Dias</p>
+                </div>
+                <div><span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div><span id="minutes">00</span>
+                    <p>Min</p>
+                </div>
+                <div><span id="seconds">00</span>
+                    <p>Seg</p>
+                </div>
+            </div>
+            <a href="https://forms.gle/BoBYjXwMhaiEk1yp7" target="_blank"
+                class="btn primary-btn large-btn glow-btn">Inscrever-se</a>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="bg-light">
+        <div class="section-title">
+            <h2>Inscrições</h2>
+        </div>
+
+        <div class="register-container card text-center">
+            <h3>Como Participar</h3>
+            <p class="reg-info">As inscrições são realizadas através de um Google Forms.</p>
+            <ul class="reg-details">
+                <li><strong>Preço da inscrição:</strong> 2€ por jogador</li>
+                <li><strong>Prazo limite:</strong> 23 de Março</li>
+            </ul>
+            <div class="mt-3">
+                <a href="https://forms.gle/BoBYjXwMhaiEk1yp7" target="_blank"
+                    class="btn primary-btn large-btn glow-btn">Fazer
+                    Inscrição</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Bracket Section -->
+    <section id="classificacoes" style="padding-bottom: 12rem;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title">BRACKET <span class="glow-text">EXPO26</span></h2>
+                <p style="color: var(--text-secondary);">O caminho até à Grande Final</p>
+            </div>
+
+            <div class="bracket-container">
+
+
+                <div class="bracket-wrapper">
+                    <div class="symmetrical-bracket">
+
+                        <!-- LEFT -->
+                        <div class="bracket-half left" id="left-bracket"></div>
+
+                        <!-- CENTER -->
+                        <div class="bracket-center">
+                            <div class="center-content">
+                                <div class="trophy-display">🏆</div>
+
+                                <div class="final-box">
+                                    <span class="round-label">GRANDE FINAL</span>
+                                    <div id="final-match"></div>
+                                </div>
+
+                                <div class="third-place-box">
+                                    <span class="round-label">3º LUGAR</span>
+                                    <div id="third-match"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT -->
+                        <div class="bracket-half right" id="right-bracket"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="bg-light">
+        <div class="section-title">
+            <h2>Prémios</h2>
+            <p>Recompensas para o pódio do torneio.</p>
+        </div>
+        <div class="prizes-container">
+            <div class="prize-card card">
+                <div class="trophy">🥈</div>
+                <h3>2º Lugar</h3>
+                <p>25€</p>
+            </div>
+            <div class="prize-card card highlight">
+                <div class="trophy">🥇</div>
+                <h3>1º Lugar</h3>
+                <p>50€</p>
+            </div>
+            <div class="prize-card card">
+                <div class="trophy">🥉</div>
+                <h3>3º Lugar</h3>
+                <p>10€</p>
+            </div>
+        </div>
+        <p class="text-center mt-3" style="font-size: 0.9rem; opacity: 0.7;">Os prémios são atribuídos em formato
+            Paysafecard.</p>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules">
+        <div class="section-title">
+            <h2>Regulamento</h2>
+            <p>Por favor, lê com atenção antes de participares.</p>
+        </div>
+        <div class="rules-container">
+            <div class="rule-block card">
+                <h3>OBJETIVO</h3>
+                <p>A Expo26 tem como objetivo reunir jogadores para uma competição amigável onde os participantes
+                    competem entre si através do EA Sports FC 26.</p>
+            </div>
+            <div class="rule-block card">
+                <h3>INSCRIÇÃO</h3>
+                <p>As inscrições estarão abertas até <strong>23 de Março</strong> e devem ser realizadas através do
+                    <strong>Formulário disponível no site</strong>. A inscrição tem o custo de <strong>2 euros por
+                        jogador</strong>.
+                </p>
+            </div>
+            <div class="rule-block card">
+                <h3>EQUIPAMENTO</h3>
+                <p>A plataforma utilizada será <strong>PC</strong> e o jogo utilizado será <strong>EA Sports FC
+                        26</strong>.</p>
+            </div>
+            <div class="rule-block card">
+                <h3>FORMATO DO TORNEIO</h3>
+                <ul>
+                    <li>O torneio será disputado em formato eliminatório (1 contra 1)</li>
+                    <li>Cada partida será realizada em modo offline</li>
+                    <li><strong>4 minutos por parte</strong></li>
+                    <li>Em caso de empate, o jogo será decidido por <strong>penáltis</strong></li>
+                </ul>
+            </div>
+            <div class="rule-block card">
+                <h3>REGRAS DO JOGO</h3>
+                <ul>
+                    <li>Cada jogador deve escolher <strong>uma equipa de um clube real</strong></li>
+                    <li>As equipas terão <strong>rating de 95</strong></li>
+                    <li><strong>Seleções nacionais são proibidas</strong></li>
+                    <li>Glitches, cheats ou exploits são proibidos</li>
+                </ul>
+            </div>
+            <div class="rule-block card">
+                <h3>COMPARÊNCIA</h3>
+                <ul>
+                    <li>Os jogadores devem apresentar-se <strong>5 minutos antes da partida</strong></li>
+                    <li>A ausência ou atraso pode resultar em <strong>derrota automática</strong>, de acordo com a
+                        organização</li>
+                </ul>
+            </div>
+            <div class="rule-block card">
+                <h3>COMPORTAMENTO</h3>
+                <ul>
+                    <li>Os jogadores devem manter uma <strong>postura respeitosa</strong> durante o torneio</li>
+                    <li>Assédio, insultos ou comportamento antidesportivo resultarão em <strong>desqualificação
+                            imediata</strong></li>
+                    <li>Danos voluntários ao equipamento obrigam <strong>compensação financeira</strong></li>
+                </ul>
+            </div>
+            <div class="rule-block card">
+                <h3>PREMIAÇÃO & CONSIDERAÇÕES FINAIS</h3>
+                <p>Serão atribuídos prémios ao <strong>1º, 2º e 3º lugar</strong>.</p>
+                <p>A organização reserva o direito de modificar o regulamento ou formato do torneio se necessário. Ao
+                    inscrever-se, o participante <strong>aceita todas as regras do torneio</strong>.</p>
+            </div>
+            <div class="rule-block card contact-card" style="grid-column: 1 / -1;">
+                <h3>CONTACTOS</h3>
+                <p>Instagram: <strong><a href="https://instagram.com/torneio.itm"
+                            target="_blank">@torneio.itm</a></strong></p>
+                <p>Email: <strong><a href="mailto:torneioitm@gmail.com">torneioitm@gmail.com</a></strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="bg-light">
+        <div class="section-title">
+            <h2>Transmissões</h2>
+            <p>Assiste às partidas ao vivo!</p>
+        </div>
+        <div class="youtube-container">
+            <!-- <div class="video-wrapper card">
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=abcdef123456" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div> -->
+
+            <div class="youtube-placeholder card">
+                <div class="placeholder-content">
+                    <svg class="youtube-icon" viewBox="0 0 24 24" fill="currentColor" width="54" height="54"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    <h3>Transmissões em breve</h3>
+                    <p class="placeholder-desc">Os jogos serão transmitidos ao vivo durante o evento.</p>
+                    <p class="placeholder-date">Acompanha tudo nos dias 26 e 27 de março.</p>
+                </div>
+            </div>
+
+            <div class="yt-info text-center mt-3">
+                <a href="https://www.youtube.com/@torneioitm" target="_blank" class="btn outline-btn yt-btn">Ver Canal
+                    no YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>2026 Curso ITM - 12º Ano.</p>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
