@@ -30,6 +30,7 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: clamp(14px, 1vw + 10px, 16px); /* Fluid body text */
 }
 
 ul {
@@ -124,7 +125,7 @@ a:hover {
 }
 
 .section-title h2 {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Fluid section titles */
     color: var(--primary);
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -133,12 +134,12 @@ a:hover {
 
 .section-title p {
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     margin-top: 10px;
 }
 
 section {
-    padding: 100px 5%;
+    padding: clamp(60px, 10vh, 100px) 5%; /* Responsive vertical padding */
 }
 
 /* NAVBAR */
@@ -175,6 +176,7 @@ nav {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+    padding: 10px 5px; /* Larger tap target */
 }
 
 .nav-links li a:hover {
@@ -207,7 +209,7 @@ nav {
 }
 
 .home-content h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive hero title */
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 10px;
@@ -216,7 +218,7 @@ nav {
 }
 
 .home-content h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive subtitle */
     color: var(--accent);
     font-weight: 400;
     margin-bottom: 30px;
@@ -225,28 +227,32 @@ nav {
 }
 
 .event-details {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: var(--text-muted);
     margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
     margin-bottom: 50px;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 .countdown div {
     background: #080808;
     border: 1px solid var(--border-color);
-    padding: 20px 30px;
+    padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 30px);
     border-radius: 4px;
-    min-width: 110px;
+    min-width: clamp(80px, 15vw, 110px);
 }
 
 .countdown span {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive countdown numbers */
     font-weight: 700;
     color: var(--primary);
     display: block;
@@ -283,11 +289,13 @@ nav {
     display: inline-block;
     text-align: left;
     margin-bottom: 40px;
-    font-size: 1.2rem;
+    font-size: clamp(0.95rem, 2vw, 1.2rem); /* Responsive registration text */
     background: #111;
-    padding: 25px 50px;
+    padding: 25px clamp(20px, 5vw, 50px); /* Responsive horizontal padding */
     border-radius: 4px;
     border: 1px solid var(--border-color);
+    max-width: 100%; /* Prevent overflow on mobile */
+    box-sizing: border-box;
 }
 
 .reg-details li {
@@ -300,15 +308,40 @@ nav {
 
 .bracket-container {
     overflow-x: auto;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+
+/* Scroll hint visible only on smaller screens */
+.mobile-scroll-hint {
+    display: none;
+    text-align: center;
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 992px) {
+    .mobile-scroll-hint {
+        display: block;
+    }
 }
 
 .symmetrical-bracket {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align all columns at the top */
+    align-items: flex-start;
     gap: 20px;
     width: 100%;
+    min-width: 1200px; /* Force minimum width to enable horizontal scroll */
     flex-wrap: nowrap;
+    padding: 20px 0;
 }
 
 
@@ -405,13 +438,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 30px;
+    gap: clamp(15px, 3vw, 30px);
     flex-wrap: wrap;
 }
 
 .prize-card {
     text-align: center;
-    width: 300px;
+    width: clamp(200px, 30vw, 300px); /* Responsive card width */
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -520,6 +554,188 @@ nav {
     background: #111;
 }
 
+/* ============================================
+   TOURNAMENT SCHEDULE SECTION
+   ============================================ */
+.schedule-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Day block */
+.schedule-day {
+    margin-bottom: 40px;
+}
+
+.schedule-day:last-child {
+    margin-bottom: 0;
+}
+
+/* Day header */
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 8px 8px 0 0;
+    border-bottom: 2px solid var(--accent);
+}
+
+.day-icon {
+    font-size: 1.4rem;
+}
+
+.day-header h3 {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Period block */
+.schedule-period {
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.schedule-period:last-child {
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0 0 8px 8px;
+}
+
+/* Period label (MANHÃ / TARDE) */
+.period-label {
+    padding: 10px 20px;
+    background: #0d0d0d;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Game rows */
+.schedule-games {
+    background: #0a0a0a;
+}
+
+.game-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    cursor: default;
+}
+
+.game-row:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect */
+.game-row:hover {
+    background-color: rgba(78, 168, 222, 0.06);
+    transform: translateX(4px);
+}
+
+/* Game time */
+.game-time {
+    flex-shrink: 0;
+    width: 130px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Game name */
+.game-name {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.game-separator {
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 2px;
+}
+
+/* Round badge */
+.game-round {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(78, 168, 222, 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.game-round:empty {
+    display: none;
+}
+
+/* Highlighted rows (Semi-finals, 3rd place) */
+.game-row--highlight {
+    background: rgba(78, 168, 222, 0.04);
+    border-left: 3px solid var(--accent);
+}
+
+.game-row--highlight:hover {
+    background: rgba(78, 168, 222, 0.1);
+}
+
+.game-row--highlight .game-round {
+    background: rgba(78, 168, 222, 0.2);
+}
+
+/* Final row */
+.game-row--final {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.02) 100%);
+    border-left: 3px solid #ffd700;
+}
+
+.game-row--final:hover {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+}
+
+.game-row--final .game-name {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.game-row--final .game-round {
+    background: rgba(255, 215, 0, 0.15);
+    color: #ffd700;
+}
+
+/* End-of-day row */
+.game-row--end {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.game-row--end .game-name {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.game-row--end:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: none;
+}
+
 /* YOUTUBE SECTION */
 .youtube-container {
     max-width: 900px;
@@ -542,7 +758,7 @@ nav {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 350px;
+    min-height: clamp(200px, 40vw, 350px); /* Responsive min-height */
     background: rgba(10, 10, 10, 0.7);
     backdrop-filter: blur(5px);
     position: relative;
@@ -593,7 +809,7 @@ nav {
 }
 
 .placeholder-content h3 {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     color: var(--primary);
     margin-bottom: 12px;
     letter-spacing: 1px;
@@ -601,7 +817,7 @@ nav {
 }
 
 .placeholder-desc {
-    font-size: 1.15rem;
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
     color: var(--text-main);
     margin-bottom: 8px;
 }
@@ -685,8 +901,49 @@ nav {
 }
 
 
-/* RESPONSIVE DESIGN */
+/* ============================================
+   RESPONSIVE DESIGN - Complete Breakpoints
+   ============================================ */
+
+/* --- TABLET (max-width: 992px) --- */
+@media (max-width: 992px) {
+    /* Reduce section spacing */
+    section {
+        padding: 70px 4%;
+    }
+
+    .section-title {
+        margin-bottom: 2.5rem;
+    }
+
+    /* Prizes: allow flexible wrapping */
+    .prize-card {
+        width: clamp(180px, 40vw, 280px);
+    }
+
+    .prize-card.highlight {
+        transform: scale(1.02);
+    }
+
+    /* YouTube placeholder smaller */
+    .youtube-placeholder {
+        min-height: 260px;
+    }
+
+    /* Rule blocks: reduce padding */
+    .rule-block {
+        padding: 1.8rem;
+    }
+
+    /* Registration details */
+    .register-container h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* --- MOBILE (max-width: 768px) --- */
 @media (max-width: 768px) {
+    /* Navigation: hamburger menu */
     .nav-links {
         display: none;
         position: absolute;
@@ -708,29 +965,54 @@ nav {
         margin: 15px 0;
     }
 
+    .nav-links li a {
+        font-size: 1rem; /* Larger for easier tapping */
+        padding: 12px 10px;
+    }
+
     .hamburger {
         display: flex;
     }
 
-    .home-content h1 {
-        font-size: 2.8rem;
+    /* Home section adjustments */
+    #home {
+        padding-top: 110px;
+        min-height: 75vh;
     }
 
-    .home-content h2 {
-        font-size: 1.2rem;
+    .event-details br {
+        display: none; /* Remove line break for better flow on mobile */
     }
 
+    /* Countdown spacing */
     .countdown div {
-        min-width: 80px;
-        padding: 15px;
+        min-width: 75px;
+        padding: 12px;
     }
 
-    .countdown span {
-        font-size: 2rem;
+    .countdown p {
+        font-size: 0.75rem;
     }
 
-    .section-title h2 {
-        font-size: 2.2rem;
+    /* Bracket section: reduce bottom padding */
+    #classificacoes {
+        padding-bottom: 6rem !important;
+    }
+
+    /* Bracket: ensure smooth scroll */
+    .bracket-container {
+        overflow-x: auto;
+    }
+
+    /* Rules: single column */
+    .rules-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Prizes: stack vertically */
+    .prize-card {
+        width: 100%;
+        max-width: 320px;
     }
 
     .prize-card.highlight {
@@ -741,23 +1023,261 @@ nav {
         transform: translateY(-2px);
     }
 
-    .bracket-container {
-        min-width: 800px;
-        gap: 30px;
+    /* Cards: less padding */
+    .card {
+        padding: 1.8rem;
     }
 
-    .rules-container {
-        grid-template-columns: 1fr;
+    /* Registration details: full width */
+    .reg-details {
+        display: block;
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .register-container h3 {
+        font-size: 1.4rem;
+    }
+
+    .reg-info {
+        font-size: 1rem;
+    }
+
+    /* YouTube placeholder */
+    .youtube-placeholder {
+        min-height: 200px;
+    }
+
+    .placeholder-content {
+        padding: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 5%;
+        font-size: 0.8rem;
+    }
+
+    /* Schedule: mobile adjustments */
+    .game-row {
+        padding: 10px 15px;
+    }
+
+    .game-time {
+        width: 110px;
+        font-size: 0.8rem;
+    }
+
+    .game-name {
+        font-size: 0.85rem;
+    }
+
+    .game-round {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+        min-width: 40px;
+    }
+
+    .day-header {
+        padding: 12px 15px;
+    }
+
+    .period-label {
+        padding: 8px 15px;
     }
 }
 
+/* --- SMALL MOBILE (max-width: 480px) --- */
+@media (max-width: 480px) {
+    /* Sections: tighter padding */
+    section {
+        padding: 50px 4%;
+    }
+
+    .section-title {
+        margin-bottom: 2rem;
+    }
+
+    /* Card spacing */
+    .card {
+        padding: 1.2rem;
+    }
+
+    /* Buttons: full width for easy tapping */
+    .large-btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        width: 100%;
+        display: block;
+    }
+
+    /* Prizes: full width stacked */
+    .prizes-container {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .prize-card {
+        width: 100%;
+        max-width: none;
+    }
+
+    .prize-card .trophy {
+        font-size: 3rem;
+    }
+
+    .prize-card p {
+        font-size: 1.8rem;
+    }
+
+    /* Rules: tighter card padding */
+    .rule-block {
+        padding: 1.2rem;
+    }
+
+    .rule-block li {
+        font-size: 0.9rem;
+    }
+
+    /* YouTube icon smaller */
+    .youtube-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Countdown: 2x2 grid on very small screens */
+    .countdown {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+
+    .countdown div {
+        min-width: unset;
+        padding: 15px 10px;
+    }
+
+    /* Contact card: override grid-column on mobile */
+    .rule-block.contact-card {
+        grid-column: auto !important;
+    }
+
+    /* Schedule: small mobile stacking */
+    .game-row {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 10px 12px;
+    }
+
+    .game-time {
+        width: 100%;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+    }
+
+    .game-name {
+        flex: 1;
+        font-size: 0.85rem;
+    }
+
+    .game-round {
+        font-size: 0.6rem;
+    }
+
+    .day-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .schedule-day {
+        margin-bottom: 25px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 20px 4%;
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   SPONSORS SECTION
+   ============================================ */
+.sponsors-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.sponsor-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    width: clamp(150px, 20vw, 250px);
+    height: 120px;
+}
+
+.sponsor-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.sponsor-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.sponsor-card:hover .sponsor-logo {
+    opacity: 1;
+}
+
+/* Fade-in Animation Classes */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustment for sponsors */
+@media (max-width: 480px) {
+    .sponsors-container {
+        gap: 20px;
+    }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
     text-align: center;
-    padding: 40px;
+    padding: clamp(20px, 5vw, 40px); /* Responsive footer padding */
     background: #050505;
     color: #555;
     border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
