@@ -160,10 +160,35 @@ function generateBracket() {
   if (thirdMatchDiv) thirdMatchDiv.innerHTML = renderMatch(thirdMatch, 31);
 }
 
+// ==========================================
+// 3. FADE-IN ANIMATION FOR SPONSORS
+// ==========================================
+function initFadeInAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Animates only once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
 // Update DOM listener
 document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     generateBracket();
+    initFadeInAnimations();
 
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
