@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXPO26</title>
+    <link rel="icon" href="img/bomboclat.png" type="image/png">
     <!-- Simple Modern Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -19,9 +22,11 @@
             <li><a href="#home">Início</a></li>
             <li><a href="#register">Inscrições</a></li>
             <li><a href="#classificacoes">BRACKET</a></li>
+            <li><a href="#horario">Horário</a></li>
             <li><a href="#prizes">Prémios</a></li>
             <li><a href="#rules">Regulamento</a></li>
             <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#sponsors">Patrocinadores</a></li>
         </ul>
         <div class="hamburger">
             <span></span><span></span><span></span>
@@ -86,7 +91,8 @@
             </div>
 
             <div class="bracket-container">
-
+                <div class="mobile-scroll-hint"><i class="fas fa-arrows-left-right"></i> Desliza para ver o bracket
+                    completo</div>
 
                 <div class="bracket-wrapper">
                     <div class="symmetrical-bracket">
@@ -120,6 +126,149 @@
         </div>
     </section>
 
+    <!-- Tournament Schedule Section -->
+    <section id="horario" class="bg-light">
+        <div class="section-title">
+            <h2>Horário do Torneio</h2>
+            <p>Consulta os horários de todos os jogos.</p>
+        </div>
+
+        <div class="schedule-container">
+
+            <!-- DIA 1: QUINTA-FEIRA -->
+            <div class="schedule-day">
+                <div class="day-header">
+                    <span class="day-icon">📅</span>
+                    <h3>Quinta-Feira — 26 de Março</h3>
+                </div>
+
+                <div class="schedule-period">
+                    <div class="period-label">TARDE</div>
+                    <div class="schedule-games">
+                        <div class="game-row">
+                            <span class="game-time">15:00 – 15:20</span>
+                            <span class="game-name">Jogo #1 <span class="game-separator">&</span> #16</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">15:20 – 15:40</span>
+                            <span class="game-name">Jogo #2 <span class="game-separator">&</span> #15</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">15:40 – 16:00</span>
+                            <span class="game-name">Jogo #3 <span class="game-separator">&</span> #14</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">16:00 – 16:20</span>
+                            <span class="game-name">Jogo #4 <span class="game-separator">&</span> #13</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">16:20 – 16:40</span>
+                            <span class="game-name">Jogo #5 <span class="game-separator">&</span> #12</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row game-row--end">
+                            <span class="game-time">16:40 – 17:00</span>
+                            <span class="game-name">Fim do Dia</span>
+                            <span class="game-round"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIA 2: SEXTA-FEIRA -->
+            <div class="schedule-day">
+                <div class="day-header">
+                    <span class="day-icon">📅</span>
+                    <h3>Sexta-Feira — 27 de Março</h3>
+                </div>
+
+                <!-- MANHÃ -->
+                <div class="schedule-period">
+                    <div class="period-label">MANHÃ</div>
+                    <div class="schedule-games">
+                        <div class="game-row">
+                            <span class="game-time">10:00 – 10:20</span>
+                            <span class="game-name">Jogo #6 <span class="game-separator">&</span> #11</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">10:20 – 10:40</span>
+                            <span class="game-name">Jogo #7 <span class="game-separator">&</span> #10</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">10:40 – 11:00</span>
+                            <span class="game-name">Jogo #8 <span class="game-separator">&</span> #9</span>
+                            <span class="game-round">R1</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">11:00 – 11:20</span>
+                            <span class="game-name">Jogo #17 <span class="game-separator">&</span> #24</span>
+                            <span class="game-round">R2</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">11:20 – 11:40</span>
+                            <span class="game-name">Jogo #18 <span class="game-separator">&</span> #23</span>
+                            <span class="game-round">R2</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">11:40 – 12:00</span>
+                            <span class="game-name">Jogo #19 <span class="game-separator">&</span> #22</span>
+                            <span class="game-round">R2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARDE -->
+                <div class="schedule-period">
+                    <div class="period-label">TARDE</div>
+                    <div class="schedule-games">
+                        <div class="game-row">
+                            <span class="game-time">15:00 – 15:20</span>
+                            <span class="game-name">Jogo #20 <span class="game-separator">&</span> #21</span>
+                            <span class="game-round">R2</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">15:20 – 15:40</span>
+                            <span class="game-name">Jogo #25 <span class="game-separator">&</span> #28</span>
+                            <span class="game-round">Quartos</span>
+                        </div>
+                        <div class="game-row">
+                            <span class="game-time">15:40 – 16:00</span>
+                            <span class="game-name">Jogo #26 <span class="game-separator">&</span> #27</span>
+                            <span class="game-round">Quartos</span>
+                        </div>
+                        <div class="game-row game-row--highlight">
+                            <span class="game-time">16:00 – 16:20</span>
+                            <span class="game-name">Jogo #29 <span class="game-separator">&</span> #30</span>
+                            <span class="game-round">Meias</span>
+                        </div>
+                        <div class="game-row game-row--highlight">
+                            <span class="game-time">16:20 – 16:40</span>
+                            <span class="game-name">Jogo #31 — 3º Lugar</span>
+                            <span class="game-round">3º Lugar</span>
+                        </div>
+                        <div class="game-row game-row--final">
+                            <span class="game-time">16:40 – 17:00</span>
+                            <span class="game-name">Jogo #32 — GRANDE FINAL</span>
+                            <span class="game-round">FINAL</span>
+                        </div>
+                        <div class="game-row game-row--end">
+                            <span class="game-time">17:00</span>
+                            <span class="game-name">Fim do Torneio</span>
+                            <span class="game-round"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Prizes Section -->
     <section id="prizes" class="bg-light">
         <div class="section-title">
@@ -127,15 +276,16 @@
             <p>Recompensas para o pódio do torneio.</p>
         </div>
         <div class="prizes-container">
-            <div class="prize-card card">
-                <div class="trophy">🥈</div>
-                <h3>2º Lugar</h3>
-                <p>25€</p>
-            </div>
+
             <div class="prize-card card highlight">
                 <div class="trophy">🥇</div>
                 <h3>1º Lugar</h3>
                 <p>50€</p>
+            </div>
+            <div class="prize-card card">
+                <div class="trophy">🥈</div>
+                <h3>2º Lugar</h3>
+                <p>25€</p>
             </div>
             <div class="prize-card card">
                 <div class="trophy">🥉</div>
@@ -249,6 +399,24 @@
                 <a href="https://www.youtube.com/@torneioitm" target="_blank" class="btn outline-btn yt-btn">Ver Canal
                     no YouTube</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors">
+        <div class="section-title fade-in-section">
+            <h2>Patrocinadores</h2>
+            <p>Os parceiros que tornam este evento possível.</p>
+        </div>
+        <div class="sponsors-container fade-in-section">
+            <a href="https://losan.es/en/" target="_blank" class="sponsor-card">
+                <img src="img/losannigger.png" alt="Patrocinador" class="sponsor-logo">
+            </a>
+            <!-- Estrutura preparada para adicionar mais patrocinadores facilmente:
+            <a href="https://link-do-patrocinador.com" target="_blank" class="sponsor-card">
+                <img src="logo-patrocinador.png" alt="Outro Patrocinador" class="sponsor-logo">
+            </a>
+            -->
         </div>
     </section>
 
